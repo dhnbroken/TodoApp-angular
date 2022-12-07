@@ -1,0 +1,56 @@
+<app-todo-input
+  (addTodo)="addTodo($event)"
+  (changeTime)="handleChangeTime($event)"
+  [todoCount]="todoCount"
+  [todos]="todos"
+></app-todo-input>
+<div class="task__status">
+  <button
+    class="task__status-btn"
+    *ngFor="let btn of filterButtons"
+    [ngClass]="{ pending: btn.label, completed: !btn.isActive }"
+    (click)="filter(btn.type)"
+  >
+    {{ btn.label }}
+    {{
+      btn.label === "All"
+        ? -todoCount
+        : btn.label === "Active"
+        ? -activeCount
+        : -(todoCount - activeCount)
+    }}
+  </button>
+</div>
+<div class="flex-between mt-8">
+  <button class="btn btn-outline-toggle" (click)="handleCompleteAll()">
+    Toggle All
+  </button>
+  <div class="search-hero">
+    <input
+      class="form-control"
+      type="text"
+      name="search"
+      [(ngModel)]="searchTodo"
+      autocomplete="off"
+      placeholder="Start searching for a hero by id or name or country"
+    />
+  </div>
+  <button
+    class="btn btn-outline-completed clear-btn"
+    [ngClass]="{ visible: completed }"
+    (click)="handleClearCompleted()"
+  >
+    Clear completed
+  </button>
+</div>
+<ul class="task__list">
+  <div>
+    <app-todo-item
+      *ngFor="let todo of filteredTodos | filter: searchTodo"
+      [todo]="todo"
+      (changeStatus)="onChangeTaskStatus($event)"
+      (editTodo)="onHandleEdit($event)"
+      (deleteTodo)="onHandleDelete($event)"
+    ></app-todo-item>
+  </div>
+</ul>

@@ -1,0 +1,52 @@
+:host {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: #333;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  margin-top: 48px;
+  flex: 0 1;
+  box-sizing: border-box;
+  position: relative;
+}
+.todo {
+  width: 100%;
+  padding: 0 16px;
+  margin: 16px 24px;
+  position: relative;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 767px) {
+  .card-container > *:not(.circle-link),
+  .terminal {
+    width: 100%;
+  }
+
+  .card:not(.highlight-card) {
+    height: 16px;
+    margin: 8px 0;
+  }
+
+  .card.highlight-card span {
+    margin-left: 72px;
+  }
+
+  svg#rocket-smoke {
+    right: 120px;
+    transform: rotate(-5deg);
+  }
+}
+
+@media screen and (max-width: 575px) {
+  svg#rocket-smoke {
+    display: none;
+    visibility: hidden;
+  }
+}

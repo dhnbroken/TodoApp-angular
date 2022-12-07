@@ -1,0 +1,68 @@
+<li
+  class="task__list-item"
+  [ngClass]="{ COMPLETED: todo.completed, PENDING: !todo.completed }"
+>
+  <input
+    type="checkbox"
+    class="task-completed-check"
+    [checked]="todo.completed"
+    [id]="todo.id"
+    (change)="changeTaskStatus(todo)"
+  />
+
+  <label [for]="todo.id" class="list-item-info">{{ todo.title }}</label>
+  <span class="list-item-info">
+    <div>{{ todo.deadline | date: "dd/MM/YYYY HH:mm" }}</div>
+    <div *ngIf="isNearDeadline" class="time-left">
+      {{ todo.deadline && timeDeadline }}
+    </div>
+    <div *ngIf="expire" class="time-out">Timeout</div>
+  </span>
+  <a
+    type="button"
+    *ngIf="!todo.completed"
+    class="list-item-btn"
+    href="#editModal"
+    (click)="callEdit(todo)"
+  >
+    Edit
+  </a>
+  <button (click)="handleDeleteTask(todo)" class="list-item-btn">Delete</button>
+</li>
+
+<form
+  *ngIf="isEdit"
+  id="editModal"
+  class="overlay"
+  action="#"
+  [formGroup]="todoForm"
+  (ngSubmit)="onSubmit()"
+>
+  <div class="popup">
+    <div>
+      <h2>Edit todo</h2>
+      <a class="close" href="#">&times;</a>
+    </div>
+    <hr />
+    <div class="content">
+      <input type="text" class="input" formControlName="title" />
+      <div class="task__card-time-icon">
+        <input
+          type="datetime-local"
+          formControlName="date"
+          id="start"
+          name="trip-start"
+          max="2032-12-31"
+        />
+      </div>
+      <button
+        class="btn btn-outline-completed"
+        type="button"
+        (click)="onSubmit()"
+      >
+        Update
+      </button>
+    </div>
+    <div *ngIf="alertMsg">{{ alertMsg }}</div>
+  </div>
+</form>

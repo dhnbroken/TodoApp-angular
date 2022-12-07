@@ -1,0 +1,93 @@
+$bg-color: #f3f2f1;
+
+.task__status {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+
+  .task__status-btn {
+    height: 32px;
+    margin-top: 16px;
+    padding: 0 12px;
+    font-size: 16px;
+    border: solid 0.5px transparent;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:focus {
+      color: whitesmoke;
+    }
+  }
+  .pending {
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    &:hover {
+      background-color: #286090;
+      border-color: #204d74;
+    }
+  }
+
+  .completed {
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+
+    &:hover {
+      background-color: #449d44;
+      border-color: #398439;
+    }
+  }
+  .task__status-all {
+    background-color: #9ea7ad;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+  }
+}
+
+.task__list {
+  list-style-type: none;
+  width: 100%;
+  padding: 0;
+  text-align: left;
+  max-height: 450px;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar:vertical {
+    width: 11px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-right: 5px solid #e1dfdd;
+  }
+}
+
+.check-all {
+  color: #337ab7;
+  &:checked::before {
+    box-shadow: inset 1em 1em #337ab7;
+  }
+}
+
+.clear-btn {
+  visibility: hidden;
+
+  &.visible {
+    visibility: visible;
+  }
+}
+.search-hero {
+  width: 60%;
+  margin: auto;
+
+  .form-control {
+    width: 100%;
+    font-size: 14px;
+    height: 42px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    padding: 0 12px;
+  }
+}

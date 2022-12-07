@@ -1,0 +1,34 @@
+<form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+  <div class="task__card">
+    <div class="task__card-input">
+      <div class="task__card-input-icon"></div>
+      <input
+        class="task-input"
+        type="text"
+        placeholder="Input task"
+        formControlName="title"
+        autofocus
+        #title
+      />
+    </div>
+    <div class="task__card-input-error">{{ alertMsg }}</div>
+    <div class="task__card-custom">
+      <div class="task__card-wrapper">
+        <div class="task__card-icon">
+          <div class="task__card-time-icon">
+            <input
+              type="datetime-local"
+              id="start"
+              name="trip-start"
+              max="2032-12-31"
+              formControlName="date"
+            />
+          </div>
+          <div class="task__card-icons"></div>
+          <div class="task__card-icons"></div>
+        </div>
+        <button type="submit" class="btn task__card-btn">Add</button>
+      </div>
+    </div>
+  </div>
+</form>

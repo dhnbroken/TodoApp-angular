@@ -1,0 +1,124 @@
+.header {
+  display: flex;
+  height: 48px;
+  background-color: #0078d7;
+  font-size: 16px;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+  .todo__menu-btn {
+    position: relative;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: #0078d7;
+    font-size: 1.4rem;
+    padding: 0 14px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #005a9e;
+    }
+  }
+}
+
+.todo__menu-logo {
+  position: relative;
+
+  padding-left: 8px;
+  padding-right: 12px;
+}
+
+.search {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  max-width: 400px;
+  margin: 8px auto;
+  height: 32px;
+  position: relative;
+  line-height: 32px;
+  height: 32px;
+
+  .search-icon {
+    color: #34373d;
+    background: #fff;
+    padding: 0 3px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  .search-input {
+    width: 100%;
+    display: inline;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: none;
+    padding: 0 5px;
+
+    &:focus {
+      outline: none;
+      border: none;
+      text-align: left;
+      color: #34373d;
+    }
+  }
+}
+
+.icon {
+  display: inline-block;
+  position: relative;
+}
+
+.todo__menu {
+  display: flex;
+  flex: 1 1 0px;
+  justify-content: flex-start;
+  align-items: center;
+  width: calc(100% - 96px);
+  position: relative;
+
+  .todo__menu-icon {
+    height: 48px;
+    position: relative;
+
+    .icon__list {
+      list-style-type: none;
+      margin: 0;
+      height: 100%;
+      display: flex;
+      justify-content: flex-start;
+
+      .icon__list-item {
+        display: block;
+        cursor: pointer;
+
+        button {
+          height: 100%;
+          border: none;
+          outline: none;
+          color: white;
+          background-color: #0078d7;
+          font-size: 1.2rem;
+          padding: 0 14px;
+
+          &:hover {
+            cursor: pointer;
+            background-color: #005a9e;
+          }
+        }
+      }
+    }
+  }
+}
+
+.todo__menu-btn,
+.todo__menu-logo {
+  line-height: 48px;
+}
